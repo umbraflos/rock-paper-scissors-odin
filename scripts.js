@@ -104,11 +104,11 @@ for (let i = 0; i < 10; i++)
     }
 console.log(getHumanChoice())
 */
-
+/*
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-/*
+
 function playGame ()
     {
         function playRound(humanChoice,compChoice)
