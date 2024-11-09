@@ -1,0 +1,31 @@
+#page-header
+    {
+        text-align: center;
+    }
+#game-buttons
+    {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+#game-result-box
+    {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        margin-top: 10%;
+    }
+#show-game-result
+    {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+    }
+    #player-choice, #comp-choice
+    {
+        display: flex;
+    }
+#show-player-choice, #show-comp-choice 
+    {
+        margin-left: 8px;
+    }

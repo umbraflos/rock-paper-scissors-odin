@@ -1,47 +1,101 @@
 console.log("Hello")
-//first attempt, algorithm or game logic might look like shit
 let humanScore = 0
 let compScore = 0
-const rock = "rock"
-const paper = "paper"
-const scissors = "scissors"
+const rock = "Rock"
+const paper = "Paper"
+const scissors = "Scissors"
 
 function getCompChoice()
     {
-        //i hate how math.random work...
         let min = 7
         let max = 9
         let c = Math.floor(Math.random()*(max - min + 1) + min)
         switch (c)
             {
                 case 7:
+                    compChoice.textContent = rock;
                     return rock;
                 case 8:
+                    compChoice.textContent = paper;
                     return paper;
                 case 9:
+                    compChoice.textContent = scissors;;
                     return scissors;
                 default:
                     return "error";
             }
     }
 
-function getHumanChoice() 
+function playGame(humanChoice,compChoice) 
     {
-        let choice = (prompt("Enter your choice: ")).toLowerCase()
-        if (choice !== null)
+        if (humanScore != 5 && compScore !=5)
             {
-                switch (choice)
-                {
-                    case rock:
-                    case paper:
-                    case scissors:
-                        return choice
-                    default:
-                        console.log("get human choice func is wrong")
-                }
+
+        
+                function humanLose()
+                        {
+                            showResult.textContent = `You lose! ${compChoice} beat ${humanChoice}`
+                            ++compScore
+                        }
+                if (humanChoice === compChoice)
+                    {
+                        showResult.textContent= "It's a tie!"
+                    }
+                else if (humanChoice === rock && compChoice === paper)
+                    {
+                        humanLose()
+                    }
+                else if (humanChoice === scissors && compChoice === rock)
+                    {
+                        humanLose()
+                    }
+                else if (humanChoice === paper && compChoice === scissors)
+                    {
+                        humanLose()
+                    }
+                else 
+                    {
+                        showResult.textContent = `You won! ${humanChoice} beat ${compChoice}`
+                        ++humanScore
+                    }
+
+                if (humanScore == 5) 
+                    {
+                        showResult.textContent = 'Human Won!'
+                    }
+                else if (compScore == 5)
+                    {
+                        showResult.textContent = 'The Machine Won!'
+                    }
             }
-        else {return "null"}
+        else {}
     }
+
+const gameBtns = document.querySelector('#game-buttons')
+const playerChoice = document.querySelector('#show-player-choice')
+const compChoice = document.querySelector('#show-comp-choice')
+const showResult = document.querySelector('#show-game-result')
+function choiceHandler (event) 
+    {
+        let choice = event.target;
+        switch (choice.id)
+            {
+                case 'rock-button':
+                    playerChoice.textContent = rock;  
+                    playGame(rock,getCompChoice())      
+                    break;
+                case 'paper-button':
+                    playerChoice.textContent = paper;
+                    playGame(paper,getCompChoice())
+                    break;
+                case 'scissors-button':
+                    playerChoice.textContent = scissors;
+                    playGame(scissors,getCompChoice())
+                    break;
+            }
+    }
+gameBtns.addEventListener('click',choiceHandler)
+
 
 /* test code
 for (let i = 0; i < 10; i++) 
@@ -54,7 +108,7 @@ console.log(getHumanChoice())
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
+/*
 function playGame ()
     {
         function playRound(humanChoice,compChoice)
@@ -110,3 +164,4 @@ function playGame ()
     }
     
 playGame()
+*/

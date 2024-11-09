@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>RPS</title>
+    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    Open the dev console to see the result.
-    <script src="scripts.js"></script>
+    <div id="page-header">
+        <h1>Rock Paper Scissors</h1>
+    </div>
+
+    <div id="game-buttons">
+        <button id="rock-button">ROCK</button>
+        <button id="paper-button">PAPER</button>
+        <button id="scissors-button">SCISSORS</button>
+    </div>
+
+    <div id="game-result-box">
+        <div id="player-choice">
+            You choose:
+            <div id="show-player-choice"></div>
+        </div>
+        <div id="comp-choice">
+            Comp choose:
+            <div id="show-comp-choice"></div>
+        </div>
+        
+    </div>
+    
+    <div id="show-game-result">dummy text</div>
+
+    <div id="page-footer"></div>
 </body>
 </html>

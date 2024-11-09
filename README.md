@@ -1,2 +1,2 @@
 # rock-paper-scissors-odin
-It took me 2 hours to make this...
+My attempt at making rps game
